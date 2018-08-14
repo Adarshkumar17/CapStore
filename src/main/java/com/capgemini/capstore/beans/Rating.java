@@ -17,7 +17,8 @@ public class Rating {
 	@OneToOne
 	private Product product;
 	private double rating;
-	
+	@OneToOne
+	private Customer customer;
 	//Constructors
 	public Rating(int ratingId) {
 		super();
@@ -27,13 +28,14 @@ public class Rating {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Rating(int ratingId, Product product, double rating) {
+	public Rating(int ratingId, Product product, double rating, Customer customer) {
 		super();
 		this.ratingId = ratingId;
 		this.product = product;
 		this.rating = rating;
+		this.customer = customer;
 	}
-	
+
 	//Getters and Setters
 	public int getRatingId() {
 		return ratingId;
@@ -53,6 +55,10 @@ public class Rating {
 	public void setRating(double rating) {
 		this.rating = rating;
 	}
-	
-	
+	public Customer getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 }

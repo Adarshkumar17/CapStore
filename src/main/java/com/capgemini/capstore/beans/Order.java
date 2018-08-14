@@ -19,8 +19,6 @@ public class Order {
 	private Product product;
 	@OneToOne
 	private Customer customer;
-	@OneToOne
-	private Merchant merchant;
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="transaction")
 	private Transaction transaction;
@@ -30,7 +28,7 @@ public class Order {
 	@OneToOne
 	private Promo promo;
 	private double orderAmount;
-	
+
 	//Constructors
 	public Order(int orderId) {
 		super();
@@ -40,13 +38,12 @@ public class Order {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Order(int orderId, Product product, Customer customer, Merchant merchant, Transaction transaction,
+	public Order(int orderId, Product product, Customer customer, Transaction transaction,
 			Date deliveryDate, Date orderDate, String deliveryStatus, Promo promo, double orderAmount) {
 		super();
 		this.orderId = orderId;
 		this.product = product;
 		this.customer = customer;
-		this.merchant = merchant;
 		this.transaction = transaction;
 		this.deliveryDate = deliveryDate;
 		this.orderDate = orderDate;
@@ -54,7 +51,7 @@ public class Order {
 		this.promo = promo;
 		this.orderAmount = orderAmount;
 	}
-	
+
 	//Getters and Setters
 	public int getOrderId() {
 		return orderId;
@@ -73,12 +70,6 @@ public class Order {
 	}
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
-	}
-	public Merchant getMerchant() {
-		return merchant;
-	}
-	public void setMerchant(Merchant merchant) {
-		this.merchant = merchant;
 	}
 	public Transaction getTransaction() {
 		return transaction;

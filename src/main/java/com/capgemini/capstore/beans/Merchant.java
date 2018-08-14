@@ -21,8 +21,6 @@ public class Merchant {
 	@Embedded
 	private Address merchantAddress;
 	@Embedded
-	private Discount merchantDiscount;
-	@Embedded
 	private Inventory merchantInventory;
 	private double merchantRevPercent;
 	private Date dateOfReg;
@@ -40,7 +38,7 @@ public class Merchant {
 	}
 
 	public Merchant(int merchantId, String merhantName, String merchantEmail, String mobileNo, Address merchantAddress,
-			Discount merchantDiscount, Inventory merchantInventory, double merchantRevPercent, Date dateOfReg,
+			Inventory merchantInventory, double merchantRevPercent, Date dateOfReg,
 			Date dateOfDel) {
 		super();
 		this.merchantId = merchantId;
@@ -48,7 +46,6 @@ public class Merchant {
 		this.merchantEmail = merchantEmail;
 		this.mobileNo = mobileNo;
 		this.merchantAddress = merchantAddress;
-		this.merchantDiscount = merchantDiscount;
 		this.merchantInventory = merchantInventory;
 		this.merchantRevPercent = merchantRevPercent;
 		this.dateOfReg = dateOfReg;
@@ -85,12 +82,6 @@ public class Merchant {
 	}
 	public void setMerchantAddress(Address merchantAddress) {
 		this.merchantAddress = merchantAddress;
-	}
-	public Discount getMerchantDiscount() {
-		return merchantDiscount;
-	}
-	public void setMerchantDiscount(Discount merchantDiscount) {
-		this.merchantDiscount = merchantDiscount;
 	}
 	public Inventory getMerchantInventory() {
 		return merchantInventory;
