@@ -13,6 +13,19 @@ public class PaymentMethod {
 	private int cash;
 	private int netbanking;
 
+	//Constructors
+	public PaymentMethod() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public PaymentMethod(int id, int cash, int netbanking) {
+		super();
+		this.id = id;
+		this.cash = cash;
+		this.netbanking = netbanking;
+	}
+
+	//Getters and Setters
 	public int getId() {
 		return id;
 	}

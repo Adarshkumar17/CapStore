@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,9 +14,12 @@ public class Feedback {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int feedbackId;
+	@OneToOne
 	private Customer customer;
 	private String typeOfFeedback;
 	private String feedbackDesc;
+	@OneToOne
+	private Product product;
 
 	//Constructors
 	public Feedback() {

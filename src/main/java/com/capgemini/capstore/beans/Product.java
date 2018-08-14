@@ -18,7 +18,7 @@ public class Product {
 	private String productDesc;
 	private int productSize;
 	private int productQuantity;
-	@Embedded
+	@OneToOne
 	private Rating productRating;
 	@OneToOne
 	private Merchant productMerchant;
@@ -32,12 +32,18 @@ public class Product {
 	private Image productImage;
 	@Embedded
 	private Discount productDiscount;
+	private String productBrand;
 
 	//Constructors
+	public Product() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Product(int productId, String productName, String productDesc, int productSize, int productQuantity,
 			Rating productRating, Merchant productMerchant, Date productAddDate, Date productDelDate,
 			Category productCategory, double productPrice, int productViews, Image productImage,
-			Discount productDiscount) {
+			Discount productDiscount, String productBrand) {
 		super();
 		this.productId = productId;
 		this.productName = productName;
@@ -53,11 +59,7 @@ public class Product {
 		this.productViews = productViews;
 		this.productImage = productImage;
 		this.productDiscount = productDiscount;
-	}
-
-	public Product() {
-		super();
-		// TODO Auto-generated constructor stub
+		this.productBrand = productBrand;
 	}
 
 	public Product(int productId) {
@@ -176,5 +178,13 @@ public class Product {
 
 	public void setProductQuantity(int productQuantity) {
 		this.productQuantity = productQuantity;
+	}
+
+	public String getProductBrand() {
+		return productBrand;
+	}
+
+	public void setProductBrand(String productBrand) {
+		this.productBrand = productBrand;
 	}
 }

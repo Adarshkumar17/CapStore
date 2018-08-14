@@ -1,10 +1,12 @@
 package com.capgemini.capstore.beans;
 
 import javax.persistence.Embeddable;
+import javax.persistence.OneToOne;
 
 @Embeddable
 public class Wishlist {
 	
+	@OneToOne
 	private Product product;
 	private int quantity;
 	

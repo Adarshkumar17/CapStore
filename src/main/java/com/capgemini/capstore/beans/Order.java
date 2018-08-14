@@ -6,21 +6,20 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="Order")
 public class Order {
-	
+
 	@Id
 	private int orderId;
-	
-	@OneToMany
+	@OneToOne 
 	private Product product;
 	@OneToOne
 	private Customer customer;
+	@OneToOne
 	private Merchant merchant;
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="transaction")
@@ -28,8 +27,35 @@ public class Order {
 	private Date deliveryDate;
 	private Date orderDate;
 	private String deliveryStatus;
+	@OneToOne
 	private Promo promo;
 	private double orderAmount;
+	
+	//Constructors
+	public Order(int orderId) {
+		super();
+		this.orderId = orderId;
+	}
+	public Order() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Order(int orderId, Product product, Customer customer, Merchant merchant, Transaction transaction,
+			Date deliveryDate, Date orderDate, String deliveryStatus, Promo promo, double orderAmount) {
+		super();
+		this.orderId = orderId;
+		this.product = product;
+		this.customer = customer;
+		this.merchant = merchant;
+		this.transaction = transaction;
+		this.deliveryDate = deliveryDate;
+		this.orderDate = orderDate;
+		this.deliveryStatus = deliveryStatus;
+		this.promo = promo;
+		this.orderAmount = orderAmount;
+	}
+	
+	//Getters and Setters
 	public int getOrderId() {
 		return orderId;
 	}
@@ -90,7 +116,7 @@ public class Order {
 	public void setOrderAmount(double orderAmount) {
 		this.orderAmount = orderAmount;
 	}
-	
-	
+
+
 
 }
